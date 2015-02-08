@@ -14,21 +14,19 @@ args = parser.parse_args()
 
 def fileParse():
         if not os.path.exists('prices.txt'):
-            print "shit, "
+            print "shit, prices doesn't exist"
         with open('prices.txt','r') as f:
             inputS = f.read()
         inputStr = inputS.splitlines()
         myList = [ ]
         for line in inputStr :
-            print "appending " + line
-            myList.append( int(line) )
+            myList.append(float(line))
         return myList
 
 def runCommand(cmd):
-    proc = subprocess.Popen( cmd, stdout = subprocess.PIPE)
+    proc = subprocess.Popen(cmd, stdout = subprocess.PIPE)
     return proc.communicate()[0]
 
-def testCommand():
-    consoleOut = runCommand( ["sudo", "nodejs", "bloom.js", "AAPL US Equity"] )
-    print consoleOut
+def testCommand(company):
+    consoleOut = runCommand( ["sudo", "node", "bloom.js", company] )
     return fileParse()
