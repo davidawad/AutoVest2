@@ -50,3 +50,12 @@ request.post(options, function(err, reponse, body) {
 
   fs.writeFile("prices.txt", s);
 });
+
+
+/*
+var date = new Date();
+
+date.getYear()
+
+
+*/

@@ -28,5 +28,5 @@ def runCommand(cmd):
     return proc.communicate()[0]
 
 def testCommand(company):
-    consoleOut = runCommand( ["sudo", "node", "bloom.js", company] )
+    consoleOut = runCommand( ["sudo", "node", "bloom.js", str(company) ] )
     return fileParse()
