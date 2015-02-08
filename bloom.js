@@ -17,6 +17,7 @@ var options = {
 };
 
 var stocks = ["AAPL US Equity"];
+stocks = process.argv[2];
 
 var options = {
     url: 'https://' + host + '/request/blp/refdata/HistoricalData' ,
