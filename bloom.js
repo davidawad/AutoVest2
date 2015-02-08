@@ -1,0 +1,47 @@
+// bloomberg stuff here
+// usage: node historicalDataRequest.js
+var request = require('request');
+var fs = require('fs');
+
+var host = 'http-api.openbloomberg.com';
+var port = 443 ;
+
+var options = {
+    host: host,
+    port: port,
+    path: '/request/blp/refdata/HistoricalData',
+    method: 'POST',
+    key: fs.readFileSync('client.key'),
+    cert: fs.readFileSync('client.crt'),
+    ca: fs.readFileSync('bloomberg.crt')
+};
+
+var stocks = ["AAPL US Equity"];
+
+var options = {
+    url: 'https://' + host + '/request/blp/refdata/HistoricalData' ,
+    json: true,
+    body:{
+      "securities": stocks,
+      "fields": ["PX_LAST"],
+      "startDate": "20120101",
+      "endDate": "20130101",
+      "periodicitySelection": "DAILY"
+    },
+
+    agentOptions: {
+      key: fs.readFileSync('client.key'),
+      cert: fs.readFileSync('client.crt'),
+      ca: fs.readFileSync('bloomberg.crt')
+    }
+};
+
+var stockPrices = [ ];
+
+request.post(options, function(err, reponse, body) {
+  var l = body.data[0].securityData.fieldData;
+  for (var i = 0; i < l.length; i++){
+    stockPrices[i] = l[i].PX_LAST;
+    fs.writeFile("prices.txt", l[i].PX_LAST );
+  }
+});

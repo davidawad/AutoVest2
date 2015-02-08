@@ -1,0 +1,9 @@
+<h1>Guest Book</h1>
+
+{% for signature in signatures %}
+
+<h2>{{ signature['name'] }}</h2>
+<p>{{ signature['message'] }}</p>
+<hr>
+
+{% endfor %}
