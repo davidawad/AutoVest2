@@ -10,7 +10,8 @@ db = dataset.connect('sqlite:///file.db')
 # create your guests table
 table = db['guests']
 
-
+#debugging call
+ret = testCommand()
 
 # when someone sends a GET to / render sign_form.html
 @app.route('/', methods=['GET'])

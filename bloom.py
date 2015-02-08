@@ -18,8 +18,11 @@ def fileParse(output):
         with open('prices.txt','r') as f:
             inputS = f.read()
         inputStr = inputS.splitlines()
+        myList = [ ]
         for line in inputStr :
-            return 
+            myList.append( int(line) )
+        print myList
+        return myList
 
 def runCommand(cmd):
     proc = subprocess.Popen( cmd, stdout = subprocess.PIPE)
@@ -28,4 +31,4 @@ def runCommand(cmd):
 def testCommand():
     consoleOut = runCommand( ["nodejs", "bloom.js", "AAPL US Equity"] )
     print consoleOut
-    fileParse()
+    return fileParse()
