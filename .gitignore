@@ -1,3 +1,4 @@
 client.*
 bloomberg.crt
 venv/
+prices.txt
