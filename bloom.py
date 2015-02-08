@@ -1,5 +1,5 @@
 #!/usr/bin/python
-import subprocess, sys
+import subprocess, sys, os
 
 '''
 This script will perform a series of headless web page console inspections while capturing and examining the STDOUT of those processes.
@@ -20,8 +20,8 @@ def fileParse():
         inputStr = inputS.splitlines()
         myList = [ ]
         for line in inputStr :
+            print "appending " + line
             myList.append( int(line) )
-        print myList
         return myList
 
 def runCommand(cmd):
