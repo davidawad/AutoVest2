@@ -9,7 +9,9 @@ db = dataset.connect('sqlite:///file.db')
 
 # create your guests table
 table = db['users']
-table.insert( dict(username='admin', password='admin', company="AAPL US Equity") )
+
+if not find_com("admin","admin"):
+    table.insert( dict(username='admin', password='admin', company="AAPL US Equity") )
 
 #debugging call
 #ret = testCommand("AAPL US Equity")
@@ -28,7 +30,7 @@ def submit():
     company = find_com(uname,pword)
     print "SHIT IS NOT"
     price = testCommand(company)
-    print "SHIT IS HAPPENING"
+    print "SHIT IS NOW: " + str (price)
     return render_template('data.html', log=True, prices=price )
 
 def find_com(uname,pword):
@@ -37,6 +39,6 @@ def find_com(uname,pword):
         if signature['username'] == uname :
             if signature['password'] == pword :
                 return signature['company']
-    return "COMPANY NOT FOUND"
+    return False
 
 app.run(debug=True)

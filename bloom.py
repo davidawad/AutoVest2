@@ -17,6 +17,7 @@ def fileParse():
             print "shit, prices doesn't exist"
         with open('prices.txt','r') as f:
             inputS = f.read()
+        print inputS
         inputStr = inputS.splitlines()
         myList = [ ]
         for line in inputStr :
