@@ -26,20 +26,16 @@ def root():
     return render_template('index.html')
 
 # when someone sends  POST to /submit, take the name and message from the body
-@app.route('/data', methods=['POST'])
+@app.route('/data', methods=['GET'])
 def getData():
     signatures = table.find()
-    uname = request.form['name']
-    pword = request.form['password']
     #company = find_com(uname,pword)
+    tCompany = "AAPL US Equity"
     company = find_com('admin','admin')
     #print "company is" + str(company)
-    #print "COMPANY IS " + str(company)
-    price = testCompany("AAPL US Equity")
+    prices = runCompany(tCompany)
     #print str(price)
-    #print "SHIT IS NOW: " + str(price)
-    #price = request("http-api.openbloomberg.com")
-    return render_template('data.html', prices=True)
+    return render_template('data.html', prices=prices, company=tCompany)
 
 @app.route('/logform', methods=['GET'])
 def logform():
@@ -62,8 +58,8 @@ def find_com(uname,pword):
     return False
 
 
-def testCompany(company):
-    cmd = ["sudo", "node", "bloom.js", str(company) ]
+def runCompany(company):
+    cmd = ["node", "bloom.js", str(company) ]
     print "RUNNING COMMAND FOR " + str(company)
     proc = subprocess.Popen(cmd, stdout = subprocess.PIPE)
     stdout = proc.communicate()[0]
@@ -74,7 +70,7 @@ def testCompany(company):
         myList.append(float(line.strip().replace(" ", "")))
     return myList
 
-@app.errorhandler(error)
+@app.errorhandler(404)
 def new_page(error):
 	return render_template('error.html', error=error)
 

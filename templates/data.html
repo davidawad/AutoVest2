@@ -1,18 +1,32 @@
-<h1>Information about {{company}}</h1>
-
 {% include 'header.html' %}
 
+<br>
+
+&nbsp; <h1>Information about {{company}}</h1>
+
+<hr>
+
+{#
 {% if not company %}
 <p> company not given!! </p>
 
 {% elif (not log) and company %}}
   <p> {{company}} was received but not logged in! </p>
 
-{% elif log and company and prices %}
+#}
 
-<p> prices are here </p>
-{% for price in prices %}
-  {{price}}
-{% endfor %}
-
+{% if company and prices %}
+<table style="width:100%">
+  <caption>Monthly savings</caption>
+  <tr>
+    <th>Day</th>
+    <th>Price</th>
+  </tr>
+  {% for price in prices %}
+    <tr>
+      <td>Day x</td>
+      <td>{{price}}</td>
+    </tr>
+  {% endfor %}
+</table>
 {% endif %}

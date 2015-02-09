@@ -1,17 +1,28 @@
 {% include 'header.html' %}
 
 <body>
-
+  <section>
+    <center>
+        <img src= "{{ url_for('static', filename="img/mmmmm.png") }}" >
+        <h1 class="selectable">AutoVest</h1>
 
 <form action='/login' method='post'>
   <label for='name'>Name</label>
   <input name='name' type='text'></input>
 
+  <br>
+  <br>
+
   <label for='password'>Password</label>
   <input name='password' type='text'></input>
+
+  <br>
+  <br>
 
   <input type='submit'></input>
 </form>
 
+</center>
+</section>
 
 </body>

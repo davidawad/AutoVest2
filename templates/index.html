@@ -1,45 +1,44 @@
   {% include 'header.html' %}
-  
+
   <body>
     <section>
       <center>
           <img src= "{{ url_for('static', filename="img/mmmmm.png") }}" >
-          <h1 class="selectable">AutoVest</h1>
-          <h2 class="selectable" style="margin-top:-30px;">AutoVest is an <span data-typer-targets="Automatic Investor., Amazing Tool." style='font-familiy:"Helvetica Neue", sans-serif;font-weight:100;font-size:1em;'>Automatic Stock Broker.</span></h2>
+          <h1>AutoVest</h1>
+          <h2 style="margin-top:-30px;">AutoVest is an <span data-typer-targets="Automatic Investor., Amazing Tool." style='font-familiy:"Helvetica Neue", sans-serif;font-weight:100;font-size:1em;'>Automatic Stock Broker.</span></h2>
 
+          <p href="data"> Look at a random company</p>
 
-
-          <a href="login" class="animated fadeIn">
+          <a href="logform" class="animated fadeIn">
             <header style="bottom:220px;background-color:rgb(200,200,200)" id="one">
             <p class="selectable">Login</p>
             </header>
           </a>
+
           <a href="register">
           <header class="animated fadeIn" >
-            <p class="selectable">Register</p>
+            <p>Register</p>
           </header>
           </a>
+
           <a href="#"> <!-- maybe make this a drop down or something-->
           <div class="animated fadeIn" >
-            <p class="selectable">About Us</p>
+            <p>About Us</p>
           </div>
           </a>
-          </center>
-          </section>
+      </center>
+    </section>
 
-
-<style>
-.selectable{
-
-}
-
-*::selection {
-  background: #000000;
-}
-*::-moz-selection {
-  background: #000000;
-}
-</style>
+    <style>
+    *::selection {
+      color:white;
+      background: #000000;
+    }
+    *::-moz-selection {
+      color:white;
+      background: #000000;
+    }
+    </style>
 
       <script type="text/javascript">
            $(function () {
