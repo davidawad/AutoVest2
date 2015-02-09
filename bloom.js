@@ -25,8 +25,8 @@ var options = {
     body:{
       "securities": stocks,
       "fields": ["PX_LAST"],
-      "startDate": "20120101",
-      "endDate": "20130101",
+      "startDate": "20140101",
+      "endDate": "20150101",
       "periodicitySelection": "DAILY"
     },
 

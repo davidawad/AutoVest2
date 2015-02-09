@@ -3,3 +3,4 @@ bloomberg.crt
 venv/
 prices.txt
 *.pyc
+file.db
