@@ -12,22 +12,36 @@ parser.add_argument('-w', '--website',   required=True, help='Site to scrape' )
 args = parser.parse_args()
 '''
 
-def fileParse():
-        if not os.path.exists('prices.txt'):
-            print "shit, prices doesn't exist"
-        with open('prices.txt','r') as f:
-            inputS = f.read()
-        print inputS
-        inputStr = inputS.splitlines()
-        myList = [ ]
-        for line in inputStr :
-            myList.append(float(line))
-        return myList
-
-def runCommand(cmd):
+def testCompany(company):
+    cmd = ["sudo", "node", "bloom.js", str(company) ]
+    print "RUNNING COMMAND FOR " + str(company)
     proc = subprocess.Popen(cmd, stdout = subprocess.PIPE)
-    return proc.communicate()[0]
+    stdout = proc.communicate()[0]
 
-def testCommand(company):
-    consoleOut = runCommand( ["sudo", "node", "bloom.js", str(company) ] )
-    return fileParse()
+    '''
+    print stdout
+
+    if not os.path.exists('prices.txt'):
+        print "shit, prices doesn't exist"
+        raise Exception("prices isn't there!")
+
+    with open('prices.txt','r') as f:
+        inputS = f.read()
+    print inputS
+    inputStr = inputS.splitlines()
+
+    myList = []
+
+    for line in inputStr :
+        myList.append(float(line))
+
+    return myList
+    '''
+
+    myList = [ ]
+    print stdout
+    '''
+    for line in stdout.splitlines():
+        myList.append(float(unicode(str(line))))
+    '''
+    return myList

@@ -1,0 +1,7 @@
+  { % for price in prices % }
+
+  <p>THINGS ARE HERE <p>
+  <p>{{ price }}</p>
+  <hr>
+
+  { % endfor % }

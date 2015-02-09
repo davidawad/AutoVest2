@@ -40,15 +40,16 @@ var options = {
 var stockPrices = [ ];
 
 request.post(options, function(err, reponse, body) {
-  console.log(body) ;
+  //console.log(body) ;
   var l = body.data[0].securityData.fieldData;
   var s = "";
   for (var i = 0; i < l.length; i++){
     stockPrices[i] = l[i].PX_LAST;
+    process.stdout.write( (l[i].PX_LAST.toString() +'\n') );
     s += l[i].PX_LAST + '\n';
   }
 
-  fs.writeFile("prices.txt", s);
+  //fs.writeFile("prices.txt", s);
 });
 
 

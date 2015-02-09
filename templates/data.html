@@ -1,9 +1,18 @@
-<h1>Guest Book</h1>
+<h1>Information about {{company}}</h1>
 
-  { % for price in prices % }
+{% include 'header.html' %}
 
-  <p>THINGS ARE HERE <p>
-  <p>{{ price }}</p>
-  <hr>
+{% if not company %}
+<p> company not given!! </p>
 
-  { % endfor % }
+{% elif (not log) and company %}}
+  <p> {{company}} was received but not logged in! </p>
+
+{% elif log and company and prices %}
+
+<p> prices are here </p>
+{% for price in prices %}
+  {{price}}
+{% endfor %}
+
+{% endif %}

@@ -1,17 +1,55 @@
-<html>
-<head>
-</head>
-<body>
+  {% include 'header.html' %}
+  
+  <body>
+    <section>
+      <center>
+          <img src= "{{ url_for('static', filename="img/mmmmm.png") }}" >
+          <h1 class="selectable">AutoVest</h1>
+          <h2 class="selectable" style="margin-top:-30px;">AutoVest is an <span data-typer-targets="Automatic Investor., Amazing Tool." style='font-familiy:"Helvetica Neue", sans-serif;font-weight:100;font-size:1em;'>Automatic Stock Broker.</span></h2>
 
-<form action='/login' method='post'>
-  <label for='name'>Name</label>
-  <input name='name' type='text'></input>
 
-  <label for='password'>Password</label>
-  <input name='password' type='text'></input>
 
-  <input type='submit'></input>
-</form>
+          <a href="login" class="animated fadeIn">
+            <header style="bottom:220px;background-color:rgb(200,200,200)" id="one">
+            <p class="selectable">Login</p>
+            </header>
+          </a>
+          <a href="register">
+          <header class="animated fadeIn" >
+            <p class="selectable">Register</p>
+          </header>
+          </a>
+          <a href="#"> <!-- maybe make this a drop down or something-->
+          <div class="animated fadeIn" >
+            <p class="selectable">About Us</p>
+          </div>
+          </a>
+          </center>
+          </section>
 
-</body>
-</html>
+
+<style>
+.selectable{
+
+}
+
+*::selection {
+  background: #000000;
+}
+*::-moz-selection {
+  background: #000000;
+}
+</style>
+
+      <script type="text/javascript">
+           $(function () {
+          $('[data-typer-targets]').typer();
+          });
+           $(document).ready(function(){
+
+           });
+      </script>
+
+
+        </body>
+  </html>
