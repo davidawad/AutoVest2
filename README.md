@@ -1,6 +1,6 @@
 # AutoVest
 
-[!image](https://github.com/DavidAwad/AutoVest2/blob/master/static/img/Front%20End.png)
+![](https://github.com/DavidAwad/AutoVest2/blob/master/static/img/Front%20End.png)
 
 ## IN ACTIVE DEVELOPMENT
 
@@ -17,3 +17,8 @@
 ## Contributors
 
 #### Big thanks to [Nick Sahler](http://nick.sahler.co), [Nicolas Rassoules](http://www.gotchagoodside.com), and [Bloomberg](http://www.bloomberg.com) for their API access tokens.
+
+
+## Made at HackHers!
+
+![](http://hackhers.me/img/profile.png)
