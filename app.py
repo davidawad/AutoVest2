@@ -42,6 +42,7 @@ def getData():
     return render_template('data.html', prices=True)
 
 @app.route('/logform', methods=['GET'])
+def logform():
     return render_template('logform.html')
 
 @app.route('/login', methods=['POST'])
@@ -73,4 +74,21 @@ def testCompany(company):
         myList.append(float(line.strip().replace(" ", "")))
     return myList
 
+@app.errorhandler(error)
+def new_page(error):
+	return render_template('error.html', error=error)
+
+'''
+@app.errorhandler(500)
+def page_not_found(error): # will send me an email with hopefully some relevant information using sendgrid
+	sg = sendgrid.SendGridClient('YOUR_SENDGRID_USERNAME', 'YOUR_SENDGRID_PASSWORD')
+	message = sendgrid.Mail()
+	message.add_to('David Awad <davidawad64@gmail.com>')
+	message.set_subject('500 Error on Spaceshare')
+	message.set_html('Body')
+	message.set_text('Hey dave, there was another error on spaceshare I apologize! Spaceshare currently has '+str(visitors)+' visitors.')
+	message.set_from('Space Admin <Admin@spaceshare.me>')
+	#status, msg = sg.send(message)
+	return render_template('error.html', error=500)
+'''
 app.run(debug=True)
