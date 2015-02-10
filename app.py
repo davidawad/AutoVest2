@@ -13,8 +13,7 @@ table = db['users']
 '''
 if not find_com("admin","admin"):
     table.insert( dict(username='admin', password='admin', company="AAPL US Equity") )
-'''
-'''
+
 return redirect(url_for('show', id=rec.id))
 '''
 #debugging call
