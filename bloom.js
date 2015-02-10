@@ -25,7 +25,7 @@ var options = {
     body:{
       "securities": stocks,
       "fields": ["PX_LAST"],
-      "startDate": "20140101",
+      "startDate": "20140601",
       "endDate": "20150101",
       "periodicitySelection": "DAILY"
     },
@@ -40,7 +40,6 @@ var options = {
 var stockPrices = [ ];
 
 request.post(options, function(err, reponse, body) {
-  //console.log(body) ;
   var l = body.data[0].securityData.fieldData;
   var s = "";
   for (var i = 0; i < l.length; i++){
@@ -51,12 +50,3 @@ request.post(options, function(err, reponse, body) {
 
   //fs.writeFile("prices.txt", s);
 });
-
-
-/*
-var date = new Date();
-
-date.getYear()
-
-
-*/

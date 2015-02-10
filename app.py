@@ -35,7 +35,9 @@ def getData():
     #print "company is" + str(company)
     prices = runCompany(tCompany)
     #print str(price)
-    return render_template('data.html', prices=prices, company=tCompany)
+    prediction = predictPrice(prices)
+    print prediction
+    return render_template('data.html', prices=prices, company=tCompany, prediction=prediction)
 
 @app.route('/logform', methods=['GET'])
 def logform():
@@ -47,7 +49,6 @@ def logger():
     uname = request.form['name']
     pword = request.form['password']
     return render_template('logform.html',prices=True)
-
 
 def find_com(uname,pword):
     signatures = table.find()
@@ -64,7 +65,7 @@ def runCompany(company):
     proc = subprocess.Popen(cmd, stdout = subprocess.PIPE)
     stdout = proc.communicate()[0]
     myList = [ ]
-    print stdout
+    #print stdout
     for line in stdout.splitlines():
         print line.strip()
         myList.append(float(line.strip().replace(" ", "")))
@@ -87,4 +88,34 @@ def page_not_found(error): # will send me an email with hopefully some relevant 
 	#status, msg = sg.send(message)
 	return render_template('error.html', error=500)
 '''
+
+def predictPrice(prices):
+    prediction = 0
+    lastAverage=0
+    average=0
+    count=0
+    Averages = [ ]
+    lastAverage = prices[1]
+    for price in prices:
+        count+=1
+        average = calculateAverage(prices[:count])
+        Averages.append( lastAverage - average )
+        lastAverage = average
+    return prices[count] + calculateAverage(Averages)
+
+# take in array of floats
+def calculateAverage(fArray):
+    if not fArray:
+        raise Exception("Array passed null")
+    total = 0
+    count = 0
+    for x in range(0,len(fArray)):
+        total += fArray[x]
+        count+=1
+    return (total/count)
+
+
+
+
+
 app.run(debug=True)
