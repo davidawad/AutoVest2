@@ -6,8 +6,9 @@
 
 ## This is an automated Stock Investment App.
 
-### Essentially it is a webapp that will use the Bloomberg Api to find data on a particular company and create predictions on what it's stocks will be the following day and make investments based on that information without the user having to do anything about it.
+### Essentially it is a webapp that will use the Bloomberg Api to find data on a particular company and create predictions on what it's stocks will be the following day and make investments based on that information without user involvement.
 
+### Ideally this would eliminate the need for Hedge funds, which means employees at Hedge funds will be free to pursue something of social value.
 
 ## So this is meant to be something that you can invest money into and it will invest it for you, there's a lot of work to do on it though.
 
